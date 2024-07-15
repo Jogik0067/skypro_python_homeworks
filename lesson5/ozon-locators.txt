@@ -1,0 +1,5 @@
+Локатор кнопки Войти -  $('[data-widget="profileMenuAnonymous" ]')
+Локатор кнопки Заказы - $('[data-widget="orderInfo"]')
+Локатор ссылки OZON Job (в футере) - $('[class="a6 d2e_9"]')
+Локатор выбора валюты (верхний левый угол страницы) - $('[data-widget="selectedCurrency"]')
+Локатор выпадашки Везде (в поисковой строке) - $('[class="daa1_32"]')
