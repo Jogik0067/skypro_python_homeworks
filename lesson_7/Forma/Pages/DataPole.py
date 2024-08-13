@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-class DataPole:
+class DataPole: #
     def __init__(self, browser):
         self.browser = browser
 

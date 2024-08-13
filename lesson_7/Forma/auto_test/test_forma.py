@@ -1,7 +1,7 @@
 from lesson_7.Forma.Pages.MainPage import MainPage
 from lesson_7.Forma.Pages.DataPole import DataPole
 
-def TEST_FORMA(chrome_browser):
+def TEST_FORMA(chrome_browser):#
     main = MainPage(chrome_browser)
     main.field()
     main.field_full()
