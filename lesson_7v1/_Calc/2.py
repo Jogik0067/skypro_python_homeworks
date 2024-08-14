@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 import pytest
-from lesson7.url_links import *
+from lesson_7.url_links import *
 
 def test_vvod():
     driver = webdriver.Chrome()

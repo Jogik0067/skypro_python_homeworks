@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from lesson_7.url_links import link_data
 from lesson_7.Forma.vvod import *
 
-class MainPage: #
+class MainPage:
     def __init__(self, browser):
         self.browser = browser
         self.browser.get(link_data)
