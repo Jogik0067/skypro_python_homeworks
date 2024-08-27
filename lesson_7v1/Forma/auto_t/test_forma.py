@@ -1,33 +1,34 @@
-from Forma.Pages.MainPage import MainPage
-from Forma.Pages.DataPole import DataPole
+from lesson_7v1.Forma.Pages.MainPage import MainPage
+from lesson_7v1.Forma.Pages.DataPole import DataPole
 
-def test_forma(chrome_browser):#
+
+def test_forma(chrome_browser):
     main = MainPage(chrome_browser)
-    main.field()
+    main.fields()
     main.field_full()
     main.click_button()
 
-    dat = DataPole(chrome_browser)
-    dat.field
-    dat.get_att_first_name
-    dat.get_att_last_name
-    dat.get_att_address
-    dat.get_att_email
-    dat.get_att_phone
-    dat.get_att_zip_code
-    dat.get_att_city
-    dat.get_att_country
-    dat.get_att_job_position
-    dat.get_att_company
+    data_fild = DataPole(chrome_browser)
+    data_fild.fields()
+    data_fild.get_class_first_name()
+    data_fild.get_class_last_name()
+    data_fild.get_class_address()
+    data_fild.get_class_email()
+    data_fild.get_class_phone()
+    data_fild.get_class_zip_code()
+    data_fild.get_class_city()
+    data_fild.get_class_country()
+    data_fild.get_class_job_position()
+    data_fild.get_class_company()
     
-    assert 'alert-danger' in dat.get_att_zip_code
-    assert 'success' in dat.get_att_first_name
-    assert 'success' in dat.get_att_last_name
-    assert 'success' in dat.get_att_phone
-    assert 'success' in dat.get_att_email
-    assert 'success' in dat.get_att_address
-    assert 'success' in dat.get_att_city
-    assert 'success' in dat.get_att_country
-    assert 'success' in dat.get_att_job_position
-    assert 'success' in dat.get_att_company
+    assert 'alert py-2 alert-danger' in data_fild.get_class_zip_code()
+    assert 'alert py-2 alert-success' in data_fild.get_class_first_name()
+    assert 'alert py-2 alert-success' in data_fild.get_class_last_name()
+    assert 'alert py-2 alert-success' in data_fild.get_class_phone()
+    assert 'alert py-2 alert-success' in data_fild.get_class_email()
+    assert 'alert py-2 alert-success' in data_fild.get_class_address()
+    assert 'alert py-2 alert-success' in data_fild.get_class_city()
+    assert 'alert py-2 alert-success' in data_fild.get_class_country()
+    assert 'alert py-2 alert-success' in data_fild.get_class_job_position()
+    assert 'alert py-2 alert-success' in data_fild.get_class_company()
 

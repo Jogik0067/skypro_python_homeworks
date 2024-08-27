@@ -8,4 +8,3 @@ city = 'Москва'
 country = 'Россия'
 job_position = 'QA'
 company = 'SkyPro'
-#
