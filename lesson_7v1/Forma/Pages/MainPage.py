@@ -1,19 +1,20 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
-from lesson_7.url_links import link_data
-from lesson_7.Forma.vvod import *
+from lesson_7v1.urllinks import link_data
+from lesson_7v1.Forma.vvod import *
+
 
 class MainPage:
     def __init__(self, browser):
         self.browser = browser
         self.browser.get(link_data)
 
-    def field(self):
+    def fields(self):
         self._first_name = (By.NAME, 'first-name')
         self._last_name = (By.NAME, 'last-name')
         self._address = (By.NAME, 'address')
-        self._email = (By.NAME, 'email')
+        self._email = (By.NAME, 'e-mail')
         self._phone = (By.NAME, 'phone')
         self._zip_code = (By.NAME, 'zip-code')
         self._city = (By.NAME, 'city')
@@ -33,5 +34,6 @@ class MainPage:
         self.browser.find_element(*self._country).send_keys(country)
         self.browser.find_element(*self._job_position).send_keys(job_position)
         self.browser.find_element(*self._company).send_keys(company)
+
     def click_button(self):
         WebDriverWait(self.browser, 40, 0.1).until(EC.element_to_be_clickable(self._button)).click()
