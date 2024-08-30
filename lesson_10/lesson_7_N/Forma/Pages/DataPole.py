@@ -3,8 +3,10 @@ from selenium.webdriver.common.by import By
 
 class DataPole:
     def __init__(self, browser):
-        self.browser = browser
+        with allure.step("Установка выборанного браузера"):
+            self.browser = browser
 
+    @allure.step("Поиск и сохранение маркеров")
     def fields(self):
         self.class_first_name = (By.ID, 'first-name')
         self.class_last_name = (By.ID, 'last-name')
@@ -16,7 +18,8 @@ class DataPole:
         self.class_country = (By.ID, 'country')
         self.class_job_position = (By.ID, 'job-position')
         self.class_company = (By.ID, 'company')
-
+        
+    @allure.step("Сохранение и передача значений атрибутов полей")
     def get_class_first_name(self):
         return self.browser.find_element(*self.class_first_name).get_attribute("class")
     

@@ -21,12 +21,15 @@ class DBComp:
     def __init__(self, db_con):
         self.db = create_engine(db_con)
 
+    @allure.step('Удаление компании из DB по идентификатору')
     def delete(self, id):
         self.db.execute(self.query["delete_by_id"], id_to_delete=id)
 
+    @allure.step('Создание компании в DB')
     def create(self, name, description):
         self.db.execute(self.query["insert new"], new_name=name,
                         new_description=description)
-
+        
+    @allure.step('Получение крайнего идентификатора компании от DB')
     def get_max_id(self):
         return self.db.execute(self.query["get_max_id"]).fetchall()[0][0]

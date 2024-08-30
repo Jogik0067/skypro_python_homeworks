@@ -25,6 +25,7 @@ class DBEmployee:
     def __init__(self, db_con):
         self.db = create_engine(db_con)
 
+    @allure.step('Создание нового сотрудника в DB')
     def create(self, first_name, last_name, phone, company_id, is_active):
         new_employee = {
             "first_name": first_name,
@@ -35,20 +36,25 @@ class DBEmployee:
         }
         self.db.execute(self.query["insert new"], new_employee)
 
+    @allure.step('Удаление сотрудника из DB по идентификатору')
     def delete(self, id):
         self.db.execute(self.query["delete employee"], new_employee_id=id)
 
+    @allure.step('Получение списка сотрудников из DB')
     def get_company_employees(self, new_company_id):
         return self.db.execute(self.query["get company's employees"],
                                company_id=new_company_id).fetchall()
-
+    
+    @allure.step('Получение сотрудника из DB по идентификатору')
     def get_employee_by_id(self, id):
         return self.db.execute(self.query["get employee by id"],
                                employee_id=id).fetchall()
-
+    
+    @allure.step('Получиние крайнего идентификатора сотрудника из DB')
     def get_max_id(self):
         return self.db.execute(self.query["get max id"]).fetchall()[0][0]
-
+    
+    @allure.step('Обновление информации о сотруднике в DB')
     def update(self, id, email, is_active):
         self.db.execute(self.query["update employee"], new_email=email, 
                         new_is_active=is_active,

@@ -7,23 +7,34 @@ from lesson_10.lesson_7_N.urllinks import link_calc
 
 class CalcPage:
     def __init__(self, browser):
-        self.browser = browser
-        self.browser.get(link_calc)
+        with allure.step("Установка выборанного браузера"):
+            self.browser = browser
+        with allure.step("Установка адреса для открытия страницы"):
+            self.browser.get(link_calc)
     
-    # Задержка расчета
+    @allure.step('Задержка расчета')
     def wait_rel(self):
-        stroka_v = self.browser.find_element(By.ID, "delay")
-        stroka_v.clear()
-        stroka_v.send_keys(45)
+        with allure.step('Поиск элемента "Delay"'):
+            stroka_v = self.browser.find_element(By.ID, "delay")
+        with allure.step('Очищение элемента "Delay"'):
+            stroka_v.clear()
+        with allure.step('Ввод занчения 45 в элемент "Delay"'):
+            stroka_v.send_keys(45)
     
-    # Вычисления
+    @allure.step('Вычисления')
     def click_act(self):
-        self.browser.find_element(By.XPATH, '//span[text()="7"]').click()
-        self.browser.find_element(By.XPATH, '//span[text()="+"]').click()
-        self.browser.find_element(By.XPATH, '//span[text()="8"]').click()
-        self.browser.find_element(By.XPATH, '//span[text()="="]').click()
-    
-    # Ожидание ответа за указанное ранее время
+        with allure.step("Нажатие цифры 7"):
+            self.browser.find_element(By.XPATH, '//span[text()="7"]').click()
+        with allure.step('Нажатие кнопки "+"'):
+            self.browser.find_element(By.XPATH, '//span[text()="+"]').click()
+        with allure.step("Нажатие цифры 8"):
+            self.browser.find_element(By.XPATH, '//span[text()="8"]').click()
+        with allure.step('Нажатие кнопки "="'):
+            self.browser.find_element(By.XPATH, '//span[text()="="]').click()
+
+    @allure.step('Результат вычисления')
     def result_w(self):
-        WebDriverWait(self.browser, 47).until(EC.text_to_be_present_in_element((By.CLASS_NAME, "screen"), "15"))
-        return self.browser.find_element(By.CLASS_NAME, 'screen').text
+        with allure.step("Ожидание ответа за указанное ранее время"):
+            WebDriverWait(self.browser, 47).until(EC.text_to_be_present_in_element((By.CLASS_NAME, "screen"), "15"))
+        with allure.step("Передача значения поля Screen"):
+            return self.browser.find_element(By.CLASS_NAME, 'screen').text
